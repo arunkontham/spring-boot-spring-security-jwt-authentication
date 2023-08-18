@@ -39,18 +39,18 @@ jobs:
       uses: actions/download-artifact@v3
     - name: Notify Release via Email
       uses: betterfor/action-send-mail@main
-        with:
-          server_address: smtp.office365.com
-          server_port: 587
-          username: konthamarun12@outlookcom
-          password: Anusha@reddy1234
-          subject: GitHub Release Notification for ${{ github.repository }}
-          to: konthamarun417@gmail.com
-          from: konthamarun12@outlookcom
-          body: A new release has been created for ${{ github.repository }}.\n
+      with:
+        server_address: smtp.office365.com
+        server_port: 587
+        username: konthamarun12@outlookcom
+        password: Anusha@reddy1234
+        subject: GitHub Release Notification for ${{ github.repository }}
+        to: konthamarun417@gmail.com
+        from: konthamarun12@outlookcom
+        body: A new release has been created for ${{ github.repository }}.\n
                 Release details:\n
-                Tag: ${{ steps.create_release.outputs.tag_name }}\n
-                Release URL: ${{ steps.create_release.outputs.html_url }}
+        Tag: ${{ steps.create_release.outputs.tag_name }}\n
+        Release URL: ${{ steps.create_release.outputs.html_url }}
 
   # deploy:
   #   name: Deploy to Server
