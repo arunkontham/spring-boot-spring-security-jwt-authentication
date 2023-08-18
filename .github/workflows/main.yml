@@ -1,15 +1,12 @@
 name: Spring Boot CI/CD with Spring Security and JWT
-
 on:
   push:
     branches:
       - master
-
 jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -29,8 +26,6 @@ jobs:
         retention-days: 5
     - name: Download all workflow run artifacts
       uses: actions/download-artifact@v3
-
-
   # deploy:
   #   name: Deploy to Server
   #   runs-on: ubuntu-latest
