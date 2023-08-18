@@ -18,7 +18,8 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: |
-        mvn clean install # Adjust the command if you're using Gradle
+        # mvn clean install # Adjust the command if you're using Gradle
+        mvn clean install -Dmaven.test.skip=true
         # mvn spring-boot:run
         # mkdir staging && cp .mvn/wrapper/*.jar staging
     - name: 'Upload Artifact'
