@@ -42,15 +42,13 @@ jobs:
       with:
         server_address: smtp.office365.com
         server_port: 587
-        username: konthamarun12@outlookcom
-        password: Anusha@reddy1234
+        username: arunme128@gmail.com  
+        password: Anusha@reddy12
         subject: GitHub Release Notification for ${{ github.repository }}
         to: konthamarun417@gmail.com
-        from: konthamarun12@outlookcom
+        from: arunme128@gmail.com 
         body: A new release has been created for ${{ github.repository }}.\n
                 Release details:\n
-        Tag: ${{ steps.create_release.outputs.tag_name }}\n
-        Release URL: ${{ steps.create_release.outputs.html_url }}
 
   # deploy:
   #   name: Deploy to Server
