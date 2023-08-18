@@ -18,7 +18,7 @@ jobs:
     - name: Build with Maven
       run: |
         mvn clean install # Adjust the command if you're using Gradle
-        mvn spring-boot:run
+        # mvn spring-boot:run
         mkdir staging && cp .mvn/wrapper/*.jar staging
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
