@@ -1,0 +1,43 @@
+name: Spring Boot CI/CD with Spring Security and JWT
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11' # Set your desired Java version
+
+      - name: Build and Test
+        run: |
+          ./mvnw clean install # Adjust the command if you're using Gradle
+          ./mvnw test          
+
+  # deploy:
+  #   name: Deploy to Server
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   steps:
+  #     - name: Checkout repository
+  #       uses: actions/checkout@v2
+
+  #     # Set up SSH keys or any other authentication mechanism for deployment
+  #     - name: Configure SSH Key
+  #       run: |
+  #         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+  #         chmod 600 ~/.ssh/id_rsa
+
+  #     - name: Deploy to Server
+  #       run: |
+  #         ssh user@your-server-ip "cd /path/to/your/app && git pull origin main && ./mvnw spring-boot:run" # Adjust the command for your deployment process
