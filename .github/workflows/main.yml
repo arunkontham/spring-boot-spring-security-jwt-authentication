@@ -37,11 +37,12 @@ jobs:
         retention-days: 5
     - name: Download all workflow run artifacts
       uses: actions/download-artifact@v3
-    - name: Notify Release via Email
-      uses: betterfor/action-send-mail@main
+    - name: Send mail
+      uses: dawidd6/action-send-mail@v3
+   
       with:
-        server_address: smtp.gmail.com
-        server_port: 587
+        server_address: aspmx.l.google.com
+        server_port: 25
         username: naidualamuru@gmail.com  
         password: ${{ secrets.GMAIL_APP_PASSWORD }}
         subject: GitHub Release Notification for ${{ github.repository }}
