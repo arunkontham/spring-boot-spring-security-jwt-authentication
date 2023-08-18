@@ -2,7 +2,7 @@ name: Spring Boot CI/CD with Spring Security and JWT
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     name: Build and Test
