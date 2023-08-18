@@ -17,10 +17,10 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: |
-        ./mvnw clean install # Adjust the command if you're using Gradle
-        ./mvnw test 
+        mvn clean install # Adjust the command if you're using Gradle
+        mvn test 
         mvn spring-boot:run
-        mkdir staging && cp .mvn/target/*.jar staging
+        mkdir staging && cp .mvn/wrapper/*.jar staging
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
       with:
