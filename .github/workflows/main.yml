@@ -37,20 +37,36 @@ jobs:
         retention-days: 5
     - name: Download all workflow run artifacts
       uses: actions/download-artifact@v3
-    - name: Send mail
-      uses: dawidd6/action-send-mail@v3
+    # - name: Send mail
+    #   uses: dawidd6/action-send-mail@v3
    
-      with:
-        server_address: aspmx.l.google.com
-        server_port: 25
-        username: naidualamuru@gmail.com  
-        password: ${{ secrets.GMAIL_APP_PASSWORD }}
-        subject: GitHub Release Notification for ${{ github.repository }}
-        to: konthamarun417@gmail.com
-        from: naidualamuru@gmail.com  
-        body: A new release has been created for ${{ github.repository }}.\n
-                Release details:\n
-
+    #   with:
+    #     server_address: aspmx.l.google.com
+    #     server_port: 25
+    #     username: naidualamuru@gmail.com  
+    #     password: ${{ secrets.GMAIL_APP_PASSWORD }}
+    #     subject: GitHub Release Notification for ${{ github.repository }}
+    #     to: konthamarun417@gmail.com
+    #     from: naidualamuru@gmail.com  
+    #     body: A new release has been created for ${{ github.repository }}.\n
+    #             Release details:\n
+  sending-email:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Check out repository code
+          uses: actions/checkout@v2
+        - name: Send email
+          uses: dawidd6/action-send-mail@v3.6.0
+          with:
+            server_address: smtp.gmail.com
+            server_port: 465
+            username: naidualamuru@gmail.com  
+            password: ${{ secrets.GMAIL_APP_PASSWORD }}
+            subject: Message from github actions.
+            to: naidualamuru@gmail.com  
+            from: naidualamuru@gmail.com  
+            secure: true
+            body: workflow for ${{github.repository}} completed successfully!
   # deploy:
   #   name: Deploy to Server
   #   runs-on: ubuntu-latest
