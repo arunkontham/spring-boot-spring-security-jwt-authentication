@@ -37,7 +37,31 @@ jobs:
         retention-days: 5
     - name: Download all workflow run artifacts
       uses: actions/download-artifact@v3
-      
+    - name: Notify Release via Email
+      uses: betterfor/action-send-mail@main
+        with:
+          server_address: smtp.office365.com
+          server_port: 587
+          username: konthamarun12@outlookcom
+          password: Anusha@reddy1234
+          subject: GitHub Release Notification for ${{ github.repository }}
+          to: konthamarun417@gmail.com
+          from: konthamarun12@outlookcom
+          body: A new release has been created for ${{ github.repository }}.\n
+                Release details:\n
+                Tag: ${{ steps.create_release.outputs.tag_name }}\n
+                Release URL: ${{ steps.create_release.outputs.html_url }}
+In this step, we're using the create_release step's outputs to include the tag name and the URL of the created release in the email body. Please replace your.email@example.com with the appropriate recipient email address.
+
+Remember to configure the GMAIL_USERNAME and GMAIL_APP_PASSWORD secrets in your repository settings and adjust other placeholders as needed. Also, ensure that you have the betterfor/action-send-mail action set up correctly in your repository or replace it with another suitable email notification solution if needed.
+
+
+
+
+
+
+Regenerate
+
   # deploy:
   #   name: Deploy to Server
   #   runs-on: ubuntu-latest
