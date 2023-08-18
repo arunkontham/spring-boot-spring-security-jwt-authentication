@@ -42,11 +42,11 @@ jobs:
       with:
         server_address: smtp.gmail.com
         server_port: 587
-        username: arunme128@gmail.com  
-        password: Anusha@reddy12
+        username: naidualamuru@gmail.com  
+        password: ${{ secrets.GMAIL_APP_PASSWORD }}
         subject: GitHub Release Notification for ${{ github.repository }}
         to: konthamarun417@gmail.com
-        from: arunme128@gmail.com 
+        from: naidualamuru@gmail.com  
         body: A new release has been created for ${{ github.repository }}.\n
                 Release details:\n
 
