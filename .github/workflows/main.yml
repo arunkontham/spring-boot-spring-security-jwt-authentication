@@ -21,12 +21,14 @@ jobs:
         # mvn clean install # Adjust the command if you're using Gradle
         mvn clean install -Dmaven.test.skip=true
         # mvn spring-boot:run
-        # mkdir staging && cp .mvn/wrapper/*.jar staging
+        mkdir staging && cp .mvn/wrapper/*.jar staging
+
+    
     - name: Archive Artifact
       uses: actions/upload-artifact@v2
       with:
           name: app-artifact
-          path: target/*.jar
+          path: staging/*.jar
     - name: 'Upload Artifact'
       uses: actions/upload-artifact@v3
       with:
