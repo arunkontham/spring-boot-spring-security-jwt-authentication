@@ -21,7 +21,7 @@ jobs:
         # mvn clean install # Adjust the command if you're using Gradle
         mvn clean install -Dmaven.test.skip=true
         # mvn spring-boot:run
-        mkdir staging && cp .mvn/wrapper/*.jar staging && ls -la
+        mkdir staging && cp .mvn/wrapper/*.jar staging && ls -la && cd ${{ github.workspace }}/staging && ls -la
 
     
     - name: Archive Artifact
@@ -31,7 +31,7 @@ jobs:
           path: staging/*.jar
     - name: Check Artifact Existence
       run: |
-        if [ -e ${{ github.workspace }}/path/to/build-artifact ]; then
+        if [ -e ${{ github.workspace }}/staging]; then
           echo "Build artifact exists."
         else
           echo "Build artifact does not exist."
