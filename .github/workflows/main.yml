@@ -33,7 +33,7 @@ jobs:
           path: ${{ github.workspace }}/staging/*.jar
     - name: Check Artifact Existence
       run: |
-        if [ -e ${{ github.workspace }}/staging]; then
+        if [ -e ${{ github.workspace }}/staging/*.jar]; then
           echo "Build artifact exists."
         else
           echo "Build artifact does not exist."
