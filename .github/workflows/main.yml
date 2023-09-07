@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
           name: app-artifact
-          path: staging/*.jar
+          path: ${{ github.workspace }}/staging/*.jar
     - name: Check Artifact Existence
       run: |
         if [ -e ${{ github.workspace }}/staging]; then
