@@ -21,8 +21,10 @@ jobs:
         # mvn clean install # Adjust the command if you're using Gradle
         mvn clean install -Dmaven.test.skip=true
         # mvn spring-boot:run
-        mkdir staging && cp .mvn/wrapper/*.jar staging && ls -la && cd ${{ github.workspace }}/staging && ls -la
-
+        mkdir staging && cp .mvn/wrapper/*.jar staging && ls -la 
+        echo -e "Name\nAddress\nPhone Number"
+        cd ${{ github.workspace }}/staging && ls -la 
+       
     
     - name: Archive Artifact
       uses: actions/upload-artifact@v2
