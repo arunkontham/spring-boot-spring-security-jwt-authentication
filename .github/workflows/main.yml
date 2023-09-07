@@ -32,12 +32,14 @@ jobs:
           name: app-artifact
           path: ${{ github.workspace }}/staging/*.jar
     - name: Check Artifact Existence
-          cd ${{ github.workspace }}/staging && ls -la 
+          
       run: |
         if [ -e ${{ github.workspace }}/staging/*.jar]; then
           echo "Build artifact exists."
+          cd ${{ github.workspace }}/staging && ls -la 
         else
           echo "Build artifact does not exist."
+          cd ${{ github.workspace }}/staging && ls -la 
         fi
 
     - name: 'Upload Artifact'
